@@ -1,0 +1,36 @@
+{
+  "categories": [
+    {
+      "id": "guides",
+      "name": "Guides",
+      "icon": "bulb",
+      "entries": [
+        {
+          "title": "Welcome to Tempus!",
+          "watermark": "START",
+          "image": "marino.png",
+          "body": "Welcome to the %%Tempus Region%%. You have arrived in @@Marino@@, a small town, in the midst of becoming a bustling hub of activity. On the beach, a @@distressed man@@ informs you that there are many stray, hungry Pokemon. Help them by adopting one, which will act as your %%Starter Pokemon%%, which is %%required to have before you are permitted to leave Marino%%."
+        }
+      ]
+    },
+    {
+      "id": "cat-mrdiktlh",
+      "name": "Utility Locations",
+      "icon": "cube",
+      "entries": [
+        {
+          "title": "PokeCenter",
+          "watermark": "HEALING",
+          "image": "pokecenter.png",
+          "body": "The %%PokeCenters%% in Tempus are Hospitals shared by Humans and Pokemon alike. %%Nurse Joy%% can be spoken with to heal your party up completely. @@Healing your Pokemon at a PokeCenter will also set your spawn point to that location.@@"
+        },
+        {
+          "title": "Nurse Joy Vans",
+          "watermark": "HEALING",
+          "image": "healingvan.png",
+          "body": "%%Healing Vans%% can be found out and about across the Tempus Region. They function the same way as PokeCenters however these vans @@do not set your spawn point@@ when they are used."
+        }
+      ]
+    }
+  ]
+}
