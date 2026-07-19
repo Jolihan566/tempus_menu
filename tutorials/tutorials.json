@@ -8,8 +8,19 @@
         {
           "title": "Welcome to Tempus!",
           "watermark": "START",
-          "image": "marino.png",
-          "body": "Welcome to the %%Tempus Region%%. You have arrived in @@Marino@@, a small town, in the midst of becoming a bustling hub of activity. On the beach, a @@distressed man@@ informs you that there are many stray, hungry Pokemon. Help them by adopting one, which will act as your %%Starter Pokemon%%, which is %%required to have before you are permitted to leave Marino%%."
+          "body": "Welcome to the %%Tempus Region%%. You have arrived in @@Marino@@, a small town, in the midst of becoming a bustling hub of activity. On the beach, a @@distressed man@@ informs you that there are many stray, hungry Pokemon. Help them by adopting one, which will act as your %%Starter Pokemon%%, which is %%required to have before you are permitted to leave Marino%%.",
+          "images": [
+            "marino.png"
+          ]
+        },
+        {
+          "title": "Using the Journal/Quest Log",
+          "watermark": "QUESTS",
+          "body": "",
+          "images": [
+            "questlog1.png",
+            "questlog2.png"
+          ]
         }
       ]
     },
@@ -21,14 +32,48 @@
         {
           "title": "PokeCenter",
           "watermark": "HEALING",
-          "image": "pokecenter.png",
-          "body": "The %%PokeCenters%% in Tempus are Hospitals shared by Humans and Pokemon alike. %%Nurse Joy%% can be spoken with to heal your party up completely. @@Healing your Pokemon at a PokeCenter will also set your spawn point to that location.@@"
+          "body": "The %%PokeCenters%% in Tempus are Hospitals shared by Humans and Pokemon alike. %%Nurse Joy%% can be spoken with to heal your party up completely. @@Healing your Pokemon at a PokeCenter will also set your spawn point to that location.@@",
+          "images": [
+            "pokecenter.png"
+          ]
         },
         {
           "title": "Nurse Joy Vans",
           "watermark": "HEALING",
-          "image": "healingvan.png",
-          "body": "%%Healing Vans%% can be found out and about across the Tempus Region. They function the same way as PokeCenters however these vans @@do not set your spawn point@@ when they are used."
+          "body": "%%Healing Vans%% can be found out and about across the Tempus Region. They function the same way as PokeCenters however these vans @@do not set your spawn point@@ when they are used.",
+          "images": [
+            "healingvan.png"
+          ]
+        },
+        {
+          "title": "Magiguy",
+          "watermark": "",
+          "images": [],
+          "body": "%%Magiguy%% is a utiltiy NPC found in all major locations in the @@Tempus Region@@. From here you can access any %%event rewards%% and %%Venture Quests%%."
+        }
+      ]
+    },
+    {
+      "id": "cat-mrrnfr7s",
+      "name": "Progression",
+      "icon": "pad",
+      "entries": [
+        {
+          "title": "Challenging Gyms",
+          "watermark": "PROGRESSION",
+          "images": [
+            "gyms.png",
+            "gyms2.png"
+          ],
+          "body": "In Tempus, there are %%18 Gyms%% to challenge, one for each @@Pokemon Type@@. Each gym is located in a different location around the map. The more Gyms you beat, the %%higher the difficulty%% will be for subsequent Gyms. "
+        },
+        {
+          "title": "Level Caps",
+          "watermark": "PROGRESSION",
+          "images": [
+            "level_cap.png"
+          ],
+          "body": "Beating Gyms also increases your %%Level Cap%%. In TempusMMO, there are %%19 Tiers%% total. Without beating any Gyms, players can train and use Pokemon up to Level 17. Catching Pokemon at higher levels is not restricted. Below are the Tiers for Levelling:\n\n      %%No Gyms Beaten%%: @@18@@\n      %%1 Gyms Beaten%%: @@22@@\n      %%2 Gyms Beaten%%: @@26@@\n      %%3 Gyms Beaten%%: @@32@@\n      %%4 Gyms Beaten%%: @@36@@\n      %%5 Gyms Beaten%%: @@40@@\n      %%6 Gyms Beaten%%: @@46@@\n      %%7 Gyms Beaten%%: @@50@@\n      %%8 Gyms Beaten%%: @@54@@\n      %%9 Gyms Beaten%%: @@60@@\n      %%10 Gyms Beaten%%: @@64@@\n      %%11 Gyms Beaten%%: @@68@@\n      %%12 Gyms Beaten%%: @@72@@\n      %%13 Gyms Beaten%%: @@76@@\n      %%14 Gyms Beaten%%: @@80@@\n      %%15 Gyms Beaten%%: @@86@@\n      %%16 Gyms Beaten%%: @@90@@\n      %%17 Gyms Beaten%%: @@94@@\n      %%18 Gyms Beaten%%: @@100@@"
         }
       ]
     }
