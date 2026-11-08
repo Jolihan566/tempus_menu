@@ -1,0 +1,10 @@
+{
+  "fallback": "In the Wild",
+  "dimensions": {
+    "minecraft:the_nether": "The Nether",
+    "minecraft:the_end": "The End"
+  },
+  "locations": [
+    { "name": "Unity City", "x": 111, "z": -531, "radius": 250, "dimension": "minecraft:overworld" }
+  ]
+}
