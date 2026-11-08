@@ -106,15 +106,48 @@ function gh(env) {
   };
 }
 
-async function mojangLookup(name) {
-  const res = await fetch(
-    `https://api.mojang.com/users/profiles/minecraft/${encodeURIComponent(name)}`,
-    { headers: { "User-Agent": "tempus-card-worker" } }
-  );
-  if (res.status === 204 || res.status === 404) return { missing: true };
-  if (!res.ok) return { unavailable: true };
-  const d = await res.json();
-  return { id: d.id, name: d.name };
+// Mojang often blocks or rate-limits Cloudflare's IPs, so try several lookups.
+// Each returns {id,name} | {missing:true} | null (service unavailable).
+const LOOKUPS = [
+  async (n) => {
+    const r = await fetch(`https://api.minecraftservices.com/minecraft/profile/lookup/name/${n}`);
+    if (r.status === 404 || r.status === 204) return { missing: true };
+    if (!r.ok) return null;
+    const d = await r.json();
+    return d && d.id ? { id: d.id, name: d.name } : null;
+  },
+  async (n) => {
+    const r = await fetch(`https://api.mojang.com/users/profiles/minecraft/${n}`);
+    if (r.status === 404 || r.status === 204) return { missing: true };
+    if (!r.ok) return null;
+    const d = await r.json();
+    return d && d.id ? { id: d.id, name: d.name } : null;
+  },
+  async (n) => {
+    const r = await fetch(`https://playerdb.co/api/player/minecraft/${n}`);
+    const d = await r.json().catch(() => null);
+    if (d && d.success && d.data && d.data.player) {
+      return { id: String(d.data.player.raw_id || d.data.player.id).replace(/-/g, ""), name: d.data.player.username };
+    }
+    if (d && d.code === "minecraft.invalid_username") return { missing: true };
+    return null;
+  },
+];
+
+export async function lookupPlayer(name) {
+  const n = encodeURIComponent(name);
+  let missingVotes = 0;
+  for (const fn of LOOKUPS) {
+    try {
+      const res = await fn(n);
+      if (res && res.id) return res;
+      if (res && res.missing) missingVotes++;
+    } catch { /* try the next service */ }
+  }
+  // Only reject as "doesn't exist" if a service actually said so and none found it.
+  if (missingVotes > 0) return { missing: true };
+  // Every service was down: let it through, flagged, since a human reviews the PR anyway.
+  return { id: "", name, unverified: true };
 }
 
 /**
@@ -205,7 +238,9 @@ export async function submitCard(env, sub, profile) {
       base,
       body:
         `Submitted from the in-game menu.\n\n` +
-        `- Minecraft account: **${profile.name}** (\`${profile.id}\`)\n` +
+        (profile.unverified
+          ? `- Minecraft account: **${profile.name}** ⚠️ NOT VERIFIED (name lookup services were down)\n`
+          : `- Minecraft account: **${profile.name}** (\`${profile.id}\`)\n`) +
         `- Favourite: ${sub.fav || "—"}\n${bioLine}\n` +
         `Merge to publish. Close to reject. The name was typed into the menu, ` +
         `so check it really is this player before merging.`,
@@ -240,9 +275,8 @@ export default {
     const sub = validateSubmission(body);
     if (sub.error) return json({ error: sub.error }, sub.error === "too_large" ? 413 : 400);
 
-    const profile = await mojangLookup(sub.name);
+    const profile = await lookupPlayer(sub.name);
     if (profile.missing) return json({ error: "unknown_player" }, 400);
-    if (profile.unavailable) return json({ error: "mojang_unavailable" }, 503);
 
     try {
       const result = await submitCard(env, sub, profile);

@@ -5,11 +5,12 @@ import assert from "node:assert/strict";
 const PNG = Buffer.from([0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a,0,0,0,13]).toString("base64");
 const env = { GITHUB_TOKEN: "t", GH_OWNER: "o", GH_REPO: "r", GH_BASE: "main", CARD_DIR: "player_cards" };
 
-let calls = [], openPRs = [], branchExists = false;
+let calls = [], openPRs = [], branchExists = false, mode = "up", lastPrBody = "";
 globalThis.fetch = async (url, init = {}) => {
   const m = init.method || "GET"; calls.push(`${m} ${url}`);
   const ok = (d, s = 200) => new Response(JSON.stringify(d), { status: s });
-  if (url.includes("api.mojang.com")) return url.endsWith("/Nobody_123") ? new Response(null, { status: 204 }) : ok({ id: "uuid1", name: "Jolihan" });
+  if (url.includes("minecraftservices.com")) { if (mode === "down") return new Response("", { status: 403 }); return url.endsWith("/Nobody_123") ? new Response("", { status: 404 }) : ok({ id: "uuid1", name: "Jolihan" }); }
+  if (url.includes("api.mojang.com") || url.includes("playerdb.co")) return new Response("{}", { status: 403 });
   if (url.endsWith("/git/ref/heads/main")) return ok({ object: { sha: "base" } });
   if (url.endsWith("/git/commits/base")) return ok({ tree: { sha: "tree0" } });
   if (url.endsWith("/git/blobs")) return ok({ sha: "blob" }, 201);
@@ -18,7 +19,7 @@ globalThis.fetch = async (url, init = {}) => {
   if (url.endsWith("/git/refs") && m === "POST") { if (branchExists) return ok({}, 422); branchExists = true; return ok({}, 201); }
   if (url.includes("/git/refs/heads/card/jolihan") && m === "PATCH") { assert.equal(JSON.parse(init.body).force, true); return ok({}); }
   if (url.includes("/pulls?state=open")) return ok(openPRs);
-  if (url.endsWith("/pulls") && m === "POST") { openPRs = [{ number: 7 }]; return ok({ number: 7 }, 201); }
+  if (url.endsWith("/pulls") && m === "POST") { lastPrBody = JSON.parse(init.body).body; openPRs = [{ number: 7 }]; return ok({ number: 7 }, 201); }
   throw new Error("unexpected " + m + " " + url);
 };
 const post = (body) => worker.fetch(new Request("https://x/card", { method: "POST", body: JSON.stringify(body) }), env);
@@ -42,6 +43,12 @@ calls = []; r = await post({ name: "Jolihan", image: PNG });
 d = await r.json(); assert.deepEqual([d.pr, d.updated], [7, true]);
 assert.ok(calls.some(c => c.startsWith("PATCH")));
 assert.ok(!calls.some(c => c.endsWith("/pulls") && c.startsWith("POST")));
+
+// all lookups down -> still submitted, flagged in a new PR
+mode = "down"; openPRs = []; branchExists = false;
+r = await post({ name: "Jolihan", image: PNG }); d = await r.json();
+assert.equal(r.status, 200, JSON.stringify(d)); assert.ok(lastPrBody.includes("NOT VERIFIED"));
+mode = "up";
 
 // not configured / CORS preflight / 404
 r = await worker.fetch(new Request("https://x/card", { method: "POST", body: "{}" }), {}); assert.equal(r.status, 503);
