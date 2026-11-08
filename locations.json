@@ -5,6 +5,33 @@
     "minecraft:the_end": "The End"
   },
   "locations": [
-    { "name": "Unity City", "x": 111, "z": -531, "radius": 250, "dimension": "minecraft:overworld" }
+    {
+      "name": "Unity City",
+      "x": 111,
+      "z": -531,
+      "radius": 250,
+      "dimension": "minecraft:overworld"
+    },
+    {
+      "name": "La Relance",
+      "x": -763,
+      "z": 134,
+      "radius": 150,
+      "dimension": "minecraft:overworld"
+    },
+    {
+      "name": "Unity City Docks",
+      "x": -622,
+      "z": -924,
+      "radius": 130,
+      "dimension": "minecraft:overworld"
+    },
+    {
+      "name": "Marino Village",
+      "x": -329,
+      "z": -1173,
+      "radius": 130,
+      "dimension": "minecraft:overworld"
+    }
   ]
 }
