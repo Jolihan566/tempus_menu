@@ -33,7 +33,7 @@ https://dash.cloudflare.com/sign-up (no card needed for Workers' free plan).
 ### 3. Deploy (from this `worker` folder, needs Node 18+)
 ```
 npx wrangler login
-npx wrangler secret put GITHUB_TOKEN      (paste the token from step 1)
+npx wrangler secret put GITHUB_SECRET    (paste the token from step 1)
 npx wrangler deploy
 ```
 The deploy prints a URL like `https://tempus-cards.<your-name>.workers.dev`.
