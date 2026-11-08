@@ -1,0 +1,8 @@
+{
+  "updated": null,
+  "boards": [
+    { "id": "trainer_battles", "title": "Trainer Battle Wins", "entries": [] },
+    { "id": "pvp_season", "title": "Ranked PvP — Current Season", "entries": [] },
+    { "id": "community_goals", "title": "Community Goal Contributors", "entries": [] }
+  ]
+}

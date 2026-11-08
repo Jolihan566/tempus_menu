@@ -1,0 +1,21 @@
+name = "tempus-cards"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+GH_OWNER = "Jolihan566"
+GH_REPO = "tempus_menu"
+GH_BASE = "main"
+CARD_DIR = "player_cards"
+
+# Per-IP limit: 5 submissions a minute. Delete this block if your account
+# rejects it — the Worker runs fine without it.
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1001"
+  [ratelimits.simple]
+  limit = 5
+  period = 60
+
+# The GitHub token is a secret, never put it in this file:
+#   npx wrangler secret put GITHUB_TOKEN

@@ -1,0 +1,39 @@
+name: Build cards index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "player_cards/**"
+      - "!player_cards/cards.json"
+      - "tools/build_cards_index.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cards-index
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so cards without meta get their commit date
+
+      - name: Rebuild player_cards/cards.json
+        run: python3 tools/build_cards_index.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- player_cards/cards.json; then
+            echo "No change"; exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add player_cards/cards.json
+          git commit -m "Rebuild cards index"
+          git push

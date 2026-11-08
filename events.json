@@ -1,0 +1,7 @@
+{
+  "timezone": "Australia/Brisbane",
+  "recurring": [
+    { "id": "shiny_sunday", "name": "Shiny Sunday", "day": "sunday", "start": "00:00", "end": "23:59", "tag": "Event" }
+  ],
+  "scheduled": []
+}
