@@ -27,7 +27,7 @@ namespace_id = "1001"
 [[d1_databases]]
 binding = "DB"
 database_name = "tempus-social"
-database_id = "PASTE-DATABASE-ID-HERE"
+database_id = "6c88843d-ae05-4417-918c-2e29ef76c2d7"
 
 # Per-IP limit for Social: 120 calls a minute.
 [[ratelimits]]
