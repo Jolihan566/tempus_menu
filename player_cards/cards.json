@@ -3,6 +3,14 @@
   "count": 5,
   "cards": [
     {
+      "slug": "jolihan",
+      "name": "Jolihan",
+      "uuid": "208b7fc295154aa9a7d9c8b34d1b5e63",
+      "fav": "mismagius",
+      "updated": "2026-11-08T06:19:15.405Z",
+      "image": "player_cards/jolihan_card.png"
+    },
+    {
       "slug": "gangrenekhan69",
       "name": "gangrenekhan69",
       "uuid": "",
@@ -25,14 +33,6 @@
       "fav": "",
       "updated": "2026-02-28T11:43:31+10:00",
       "image": "player_cards/piuy373_card.png"
-    },
-    {
-      "slug": "jolihan",
-      "name": "jolihan",
-      "uuid": "",
-      "fav": "",
-      "updated": "2026-02-14T13:14:36+10:00",
-      "image": "player_cards/jolihan_card.png"
     },
     {
       "slug": "veganjesus",
