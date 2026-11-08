@@ -49,6 +49,7 @@ def main() -> int:
             "name": meta.get("name") or slug,
             "uuid": meta.get("uuid") or "",
             "fav": meta.get("fav") or "",
+            "bio": meta.get("bio") or "",
             "updated": meta.get("updated") or git_date(png),
             "image": f"player_cards/{png.name}",
         })

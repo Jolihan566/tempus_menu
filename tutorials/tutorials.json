@@ -76,6 +76,145 @@
           "body": "Beating Gyms also increases your %%Level Cap%%. In TempusMMO, there are %%19 Tiers%% total. Without beating any Gyms, players can train and use Pokemon up to the first cap in the table below. Catching Pokemon at higher levels is not restricted. Below are the Tiers for Levelling:\n\n      %%No Gyms Beaten%%: @@18@@\n      %%1 Gyms Beaten%%: @@22@@\n      %%2 Gyms Beaten%%: @@26@@\n      %%3 Gyms Beaten%%: @@32@@\n      %%4 Gyms Beaten%%: @@36@@\n      %%5 Gyms Beaten%%: @@40@@\n      %%6 Gyms Beaten%%: @@46@@\n      %%7 Gyms Beaten%%: @@50@@\n      %%8 Gyms Beaten%%: @@54@@\n      %%9 Gyms Beaten%%: @@60@@\n      %%10 Gyms Beaten%%: @@64@@\n      %%11 Gyms Beaten%%: @@68@@\n      %%12 Gyms Beaten%%: @@72@@\n      %%13 Gyms Beaten%%: @@76@@\n      %%14 Gyms Beaten%%: @@80@@\n      %%15 Gyms Beaten%%: @@86@@\n      %%16 Gyms Beaten%%: @@90@@\n      %%17 Gyms Beaten%%: @@94@@\n      %%18 Gyms Beaten%%: @@100@@"
         }
       ]
+    },
+    {
+      "id": "trainer-rank",
+      "name": "Trainer Rank",
+      "icon": "shield",
+      "entries": [
+        {
+          "title": "Trainer Rank",
+          "watermark": "RANK",
+          "images": [],
+          "body": "Your %%Trainer Rank%% is account-wide progress that goes all the way to @@Rank 100@@. Almost everything you do earns Trainer XP: story quests, NPC and gym battles, catching Pokémon, side quests and bounties.\n\nEvery rank-up pays a %%Trainer Support Cache%%, and every @@5 ranks@@ you also get PokéDollars and extra caches. Check your rank any time with @@/trainer@@ or the %%Trainer%% button in the pause menu."
+        },
+        {
+          "title": "Trainer Support Caches",
+          "watermark": "REWARDS",
+          "images": [],
+          "body": "%%Trainer Support Caches%% are earned from rank-ups. Each one rolls @@three rewards@@, each with its own rarity — Common, Uncommon, Rare, Epic or Legendary — plus some PokéDollars.\n\nThey hold useful trainer supplies; profession materials come from the profession caches instead."
+        },
+        {
+          "title": "Titles",
+          "watermark": "TITLES",
+          "images": [],
+          "body": "%%Titles%% are chat prefixes you unlock by playing. Open @@/titles@@ (or the %%Titles%% button in the pause menu) to see every title, which ones you own, and to equip one.\n\nYou earn them from Trainer Rank milestones, story chapters, profession levels, Pokédex research, bounties and events. The big rank titles include %%Victory Road Victor%% at Rank 50 and %%Hall of Famer%% at Rank 100."
+        },
+        {
+          "title": "Researcher (Pokédex)",
+          "watermark": "RESEARCH",
+          "images": [],
+          "body": "The %%Researcher%% profession levels up automatically as you @@catch new species@@. Its 50 levels follow your Pokédex completion — level 50 means a full Pokédex.\n\nEvery level pays a reward, with evolution items along the way, support caches every 5 levels and a %%Master Ball%% at level 50."
+        }
+      ]
+    },
+    {
+      "id": "professions",
+      "name": "Professions",
+      "icon": "gear",
+      "entries": [
+        {
+          "title": "Professions",
+          "watermark": "JOBS",
+          "images": [
+            "tinkaton_workshop.jpg"
+          ],
+          "body": "Tempus has four gathering and crafting professions: %%Miner%%, %%Botanist%%, %%Crafting%% and %%Cooking%%. Harvest nodes and Apricorn trees, craft Poké Balls and tools, and cook meals to level them up.\n\nProfession tools are @@permanent@@ — they never wear out. Upgrading a tool raises its tier."
+        },
+        {
+          "title": "Skill Trees",
+          "watermark": "SKILLS",
+          "images": [],
+          "body": "%%Miner%% and %%Botanist%% each have a skill tree. Open them with @@/skills@@ or the %%Skills%% button in the pause menu.\n\nYou earn @@one skill point every 5 levels@@. Each tree has three paths, and at the top you choose @@one keystone@@ — pick carefully. You can respec for free once every 24 hours."
+        },
+        {
+          "title": "Capstones",
+          "watermark": "MASTERY",
+          "images": [],
+          "body": "Keep levelling past the skill tree for %%capstone%% bonuses at @@levels 60, 80 and 100@@, including bonus XP and, at 100, a small chance of a %%Pristine Reward Cache%%."
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "name": "Events",
+      "icon": "star",
+      "entries": [
+        {
+          "title": "Server Events",
+          "watermark": "EVENTS",
+          "images": [],
+          "body": "Staff run %%server events%% such as @@double XP@@ for a profession or for Trainer Rank. During Mining and Botanist events, node and tree cooldowns are also shorter.\n\nSee what is running with @@/events@@, the %%Events%% button in the pause menu, or the event banner on the title screen."
+        },
+        {
+          "title": "Community Goals",
+          "watermark": "TOGETHER",
+          "images": [],
+          "body": "%%Community goals%% are server-wide targets everyone contributes to — mining nodes, harvesting trees, crafting or cooking. When the goal is reached, every contributor is paid.\n\nThe @@top contributors@@ appear on a leaderboard, and the number one spot earns a bonus Event Cache."
+        },
+        {
+          "title": "Themed Events & Chronoshards",
+          "watermark": "CHRONO",
+          "images": [],
+          "body": "%%Themed events%% give every player personal objectives — catches, wins, hunts and more — in three tiers. Completing them pays %%Chronoshards%%.\n\nSpend Chronoshards in the @@Chronoshard Shop@@ on items, caches, titles and shiny Poké-Hats."
+        },
+        {
+          "title": "Shiny Sunday",
+          "watermark": "WEEKLY",
+          "images": [],
+          "body": "Every %%Sunday%% is @@Shiny Sunday@@ — the best day of the week to go shiny hunting. The event banner on the title screen and pause menu shows when it is live and how long is left."
+        }
+      ]
+    },
+    {
+      "id": "activities",
+      "name": "Daily & Weekly",
+      "icon": "book",
+      "entries": [
+        {
+          "title": "Bounty Boards",
+          "watermark": "BOUNTIES",
+          "images": [],
+          "body": "Pick up bounties through %%Magiguy%%. There are three boards:\n\n      %%Bronze%%: @@4 bounties, refreshed daily@@\n      %%Silver%%: @@3 bounties, refreshed daily@@ (Trainer Rank 15)\n      %%Gold%%: @@3 bounties, refreshed weekly@@ (Trainer Rank 30)\n\nBounties pay PokéDollars, items, local reputation and Trainer XP."
+        },
+        {
+          "title": "Penelope's Plants",
+          "watermark": "DAILY",
+          "images": [],
+          "body": "Visit %%Penelope%% in @@Unity City@@ for four plant requests every day. Each request pays PokéDollars, and finishing all four earns a %%Reward Cache%%. Requests reset at midnight UTC."
+        },
+        {
+          "title": "Wandering Traders",
+          "watermark": "SHOPS",
+          "images": [],
+          "body": "%%Wandering Traders%% open for @@one hour every four hours@@. You will get a notice when you log in during an open window."
+        }
+      ]
+    },
+    {
+      "id": "combat",
+      "name": "Battle",
+      "icon": "mask",
+      "entries": [
+        {
+          "title": "Raid Dens",
+          "watermark": "RAIDS",
+          "images": [],
+          "body": "%%Raid dens%% come in tiers — the higher the tier, the tougher the boss and the better the rewards. @@Tier 5 and above@@ can drop raid keys, and @@Tier 7@@ dens hold legendary Pokémon. Type-locked dens exist for all 18 types.\n\nRaids are made for groups — ask in Discord to find a team."
+        },
+        {
+          "title": "Regalis Camps",
+          "watermark": "DANGER",
+          "images": [],
+          "body": "The %%Regalis Family%% has set up camps around the region. Clearing a camp means fighting through @@waves@@ of grunts, with rewards for each wave and a bonus for clearing several.\n\nIf you flee, the camp remembers — you will have to wait before you can engage it again."
+        },
+        {
+          "title": "Ranked PvP",
+          "watermark": "PVP",
+          "images": [],
+          "body": "Test your team against other trainers in %%Ranked PvP%%. Ranked play runs in @@seasons@@, each with its own rankings."
+        }
+      ]
     }
   ]
 }

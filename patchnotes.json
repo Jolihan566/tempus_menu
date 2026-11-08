@@ -1,0 +1,64 @@
+{
+  "modpack": [
+    {
+      "version": "",
+      "date": "2026-11-08",
+      "title": "Menu & Field Guide update",
+      "notes": [
+        "Trainer Database rebuilt: switch between a 4-across grid and a list view, search trainers, filter by favourite Pokémon or last update, and click any card to enlarge it",
+        "Trainer Card uploads no longer need a token — press sync and your card goes to the team for approval",
+        "New Patch Notes panel on the title screen with Modpack and Server tabs",
+        "Live event banner on the title screen and pause menu with a countdown",
+        "Pause menu quick links for Skills, Events, Trainer and Titles",
+        "Field Guide: new guides for Trainer Rank, titles, skill trees, events, Chronoshards, bounties and more, and screenshots load much faster",
+        "Removed the singleplayer button — Tempus is server-only"
+      ]
+    }
+  ],
+  "server": [
+    {
+      "version": "",
+      "date": "2026-10-17",
+      "title": "Themed events & Chronoshards",
+      "notes": [
+        "Themed server events with personal objectives that pay Chronoshards",
+        "Chronoshard Shop with items, caches, titles and shiny Poké-Hats",
+        "Community goal leaderboards — top contributors earn bonus rewards",
+        "Profession capstones at levels 60, 80 and 100"
+      ]
+    },
+    {
+      "version": "",
+      "date": "2026-10-16",
+      "title": "Server events & community goals",
+      "notes": [
+        "Double XP events for professions and Trainer Rank",
+        "Server-wide community goals everyone contributes to",
+        "Check what's running any time with /events"
+      ]
+    },
+    {
+      "version": "",
+      "date": "2026-10-15",
+      "title": "Profession skill trees",
+      "notes": [
+        "Miner and Botanist skill trees — open them with /skills",
+        "Earn a skill point every 5 profession levels and pick one of three keystones",
+        "Free respec once every 24 hours"
+      ]
+    },
+    {
+      "version": "",
+      "date": "2026-10-12",
+      "title": "Trainer Rank, titles & bounties",
+      "notes": [
+        "Account-wide Trainer Rank — earn XP from quests, battles, catches and bounties",
+        "Rank-ups pay Trainer Support Caches, with bigger rewards every 5 ranks",
+        "Researcher profession levels up as your Pokédex fills",
+        "Earnable chat titles you can equip with /titles",
+        "Trainer Card with your rank and progress: /trainer",
+        "Bronze, Silver and Gold bounty boards"
+      ]
+    }
+  ]
+}

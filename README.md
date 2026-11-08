@@ -7,8 +7,9 @@ here changes every player's menu within ~5 minutes, with no pack update.
 | File | Read by | What it is |
 |---|---|---|
 | `news.json` | title screen ticker | `[{ "text", "tag"?, "date"? }]` — newest first |
-| `status.json` | (ready for the event banner) | active event, season, MOTD |
-| `events.json` | (ready for the calendar) | recurring + one-off events, times in `timezone` |
+| `status.json` | event banner (title + pause) | one-off event `{ name, image?, starts?, ends? }` — overrides `events.json` while active; `null` when none |
+| `events.json` | event banner | weekly `recurring` events `{ name, day, start, end, image? }` in `timezone` — banner shows the live one or the next one |
+| `patchnotes.json` | title screen Patch Notes dropdown | `{ modpack:[…], server:[…] }`, each `{ version?, date, title, notes[] }` — newest date shows a NEW dot |
 | `leaderboards.json` | (ready for Hall of Fame) | boards of `{ name, value }` entries |
 | `player_cards/cards.json` | Trainer Database | **generated** — don't edit by hand |
 | `player_cards/*_card.png` | Trainer Database | card images |
