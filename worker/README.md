@@ -33,7 +33,7 @@ https://dash.cloudflare.com/sign-up (no card needed for Workers' free plan).
 ### 3. Deploy (from this `worker` folder, needs Node 18+)
 ```
 npx wrangler login
-npx wrangler secret put GITHUB_SECRET    (paste the token from step 1)
+npx wrangler secret put GITHUB_TOKEN      (paste the token from step 1)
 npx wrangler deploy
 ```
 The deploy prints a URL like `https://tempus-cards.<your-name>.workers.dev`.
@@ -65,3 +65,40 @@ Fakes GitHub and Mojang, so it needs no token or network.
 Revoke every token you handed out through Discord tickets (GitHub → Settings →
 Developer settings → tokens). The new menus no longer read them and clear any
 stored copy on load.
+
+## Social (friends list on the pause menu)
+
+Friends lists and requests are stored in a free Cloudflare D1 database by this
+same Worker. Online status is checked live on the game server through
+FancyMenu (FancyMenu must be installed on the server).
+
+### One-time setup (from this `worker` folder)
+```
+npx wrangler d1 create tempus-social
+```
+Copy the `database_id` it prints into `wrangler.toml` (replace `PASTE-DATABASE-ID-HERE`), then:
+```
+npx wrangler d1 execute tempus-social --remote --file=schema.sql
+npx wrangler secret put ADMIN_KEY        (make up a long password; staff use it to reset links)
+npx wrangler deploy
+```
+
+### How identity works
+The first time a player opens the pause menu, their game creates a private key
+and the Worker links it to their Minecraft UUID (after checking the name really
+belongs to that UUID). After that, only that PC's key can manage their friends.
+
+If a player reinstalls or moves PC, Social says "This PC isn't linked". Reset them:
+```
+curl -X POST https://tempus-cards.tempus-cards.workers.dev/friends/admin/reset \
+  -H "X-Admin-Key: <your ADMIN_KEY>" -H "Content-Type: application/json" \
+  -d "{\"name\":\"PlayerName\"}"
+```
+(PowerShell: use `curl.exe` and the same arguments.) Their friends are kept; the
+next pause-menu open links their new PC.
+
+### Test locally
+```
+node test_friends.mjs
+```
+Uses a real SQLite database in memory; no Cloudflare account needed.

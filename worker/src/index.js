@@ -18,6 +18,8 @@
  *   RATE_LIMITER  (optional binding) per-IP limit
  */
 
+import { handleFriends } from "./friends.js";
+
 const MAX_PNG_BYTES = 1_500_000;
 const NAME_RE = /^[A-Za-z0-9_]{3,16}$/;
 const PNG_SIG = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
@@ -26,7 +28,7 @@ const CORS = {
   // Menu pages run from file:// (Origin "null"), so a specific origin can't be pinned.
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Headers": "Content-Type, X-Admin-Key",
   "Access-Control-Max-Age": "86400",
 };
 
@@ -257,6 +259,16 @@ export default {
 
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
     if (url.pathname === "/health") return json({ ok: true });
+
+    if (url.pathname.startsWith("/friends/") && request.method === "POST") {
+      if (env.SOCIAL_LIMITER) {
+        const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+        const { success } = await env.SOCIAL_LIMITER.limit({ key: ip });
+        if (!success) return json({ error: "rate_limited" }, 429);
+      }
+      const r = await handleFriends(url.pathname.slice("/friends/".length), request, env, lookupPlayer);
+      return json(r.body, r.status);
+    }
     if (url.pathname !== "/card" || request.method !== "POST") return json({ error: "not_found" }, 404);
     if (!env.GITHUB_TOKEN) return json({ error: "not_configured" }, 503);
 
